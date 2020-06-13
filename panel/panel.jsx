@@ -1,27 +1,24 @@
-import React from 'react'
-import panelPNGHD from './panel.png'
-import panelPNG from './panel.small.png'
-// import panelPNGHD from './lion.jpg'
-// import panelPNG from './lion.small.jpg'
-import ProgresiveSVGImage from'./progresive-svg-image'
+import React from "react";
+// import panelPNGHD from "./panel.png";
+// import panelPNG from "./panel.small.png";
+import panelPNGHD from "./lion.jpg";
+import panelPNG from "./lion.small.jpg";
+import ProgresiveSVGImage from "./progresive-svg-image";
 
 const styles = {
-  width: '100%',
-  height: '100%',
-  position: 'absolute'
-}
-
-
+  width: "100%",
+  height: "100%",
+  position: "absolute",
+};
 
 class SVGPanel extends React.Component {
-
-  shouldComponentUpdate = prevProps =>
+  shouldComponentUpdate = (prevProps) =>
     prevProps.bounds !== this.props.bounds ||
-    prevProps.path !== this.props.path
+    prevProps.path !== this.props.path;
 
   render() {
-    const bounds = this.props.bounds
-    const strokeSize = 2
+    const bounds = this.props.bounds;
+    const strokeSize = 2;
 
     return (
       <svg
@@ -51,7 +48,7 @@ class SVGPanel extends React.Component {
             width="100%"
             height="100%"
           >
-            <ProgresiveSVGImage url={this.props.panelPNG} urlHD={panelPNGHD} />
+            <ProgresiveSVGImage url={panelPNG} urlHD={panelPNGHD} />
           </pattern>
         </defs>
         <g
@@ -75,8 +72,8 @@ class SVGPanel extends React.Component {
           </g>
         </g>
       </svg>
-    )
+    );
   }
 }
 
-export default SVGPanel
+export default SVGPanel;

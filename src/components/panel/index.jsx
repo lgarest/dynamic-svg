@@ -1,19 +1,21 @@
 import React from "react";
 import MeasureAndRender from "./measure-and-render";
 import SVGPanel from "./panel";
+import panelPNGHD from "../../assets/lion.jpg";
+import panelPNG from "../../assets/lion.small.jpg";
 
 const gridStyles = {
   position: "relative",
   display: "grid",
   gridTemplateColumns: "90vw",
-  gridTemplateRows: "90vh",
+  gridTemplateRows: "90vh"
 };
 
 const svgPathDefaults = { factor: 0.5, offset: 0, stroke: 1 };
 
 const svgPath = ({ factor, offset, stroke } = svgPathDefaults) => ({
   width,
-  height,
+  height
 }) => `
   M${width - stroke},${stroke}
   L${stroke},${stroke}
@@ -23,8 +25,13 @@ const svgPath = ({ factor, offset, stroke } = svgPathDefaults) => ({
   L${width - stroke},${height - 30}
   Z`;
 
-const renderPanel = (boundingRectangle) => (
-  <SVGPanel bounds={boundingRectangle} path={svgPath()(boundingRectangle)} />
+const renderPanel = boundingRectangle => (
+  <SVGPanel
+    bounds={boundingRectangle}
+    path={svgPath()(boundingRectangle)}
+    url={panelPNG}
+    urlHD={panelPNGHD}
+  />
 );
 
 export default () => (
